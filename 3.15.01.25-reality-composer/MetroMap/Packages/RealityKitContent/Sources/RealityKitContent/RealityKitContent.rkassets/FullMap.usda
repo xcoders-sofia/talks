@@ -1,0 +1,1322 @@
+#usda 1.0
+(
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["BlueMaterial", "GreenMaterial", "RedMaterial", "YellowMaterial", "Line1", "Line2", "Line3", "Line4"]
+    def Material "BlueMaterial"
+    {
+        token outputs:mtlx:surface
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/BlueMaterial/DefaultSurfaceShader.outputs:surface>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (0, 110.5)
+
+        def Shader "DefaultSurfaceShader"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor = (0.016804177, 0.198351, 1) (
+                colorSpace = "srgb_texture"
+            )
+            float inputs:roughness = 0.75
+            token outputs:surface
+        }
+    }
+
+    def Material "GreenMaterial"
+    {
+        token outputs:mtlx:surface
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/GreenMaterial/DefaultSurfaceShader.outputs:surface>
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (0, 110.5)
+
+        def Shader "DefaultSurfaceShader"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor = (0, 0.97680455, 0) (
+                colorSpace = "srgb_texture"
+            )
+            float inputs:roughness = 0.75
+            token outputs:surface
+        }
+    }
+
+    def Material "RedMaterial"
+    {
+        token outputs:mtlx:surface
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/RedMaterial/DefaultSurfaceShader.outputs:surface>
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (0, 110.5)
+
+        def Shader "DefaultSurfaceShader"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor = (1, 0.14913142, 0) (
+                colorSpace = "srgb_texture"
+            )
+            float inputs:roughness = 0.75
+            token outputs:surface
+        }
+    }
+
+    def Material "YellowMaterial"
+    {
+        token outputs:mtlx:surface
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/YellowMaterial/DefaultSurfaceShader.outputs:surface>
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (0, 110.5)
+
+        def Shader "DefaultSurfaceShader"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor = (0.99942404, 0.9855537, 0) (
+                colorSpace = "srgb_texture"
+            )
+            float inputs:roughness = 0.75
+            token outputs:surface
+        }
+    }
+
+    def Xform "Line1" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, 0, 0)
+        }
+    )
+    {
+        reorder nameChildren = ["Sphere_Left_10", "Capsule_2", "Capsule_3", "Capsule_4"]
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-0.09397352, 7.8976154e-7, -0.5430459)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Capsule "Capsule_2" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (1.574304, -2.384186e-7, -1.5707965)
+            }
+        )
+        {
+            uniform token axis = "Y"
+            double height = 1
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.02
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (0.49912232, 0.500876, -0.5008762, -0.49912226)
+            float3 xformOp:scale = (0.99999964, 0.99999964, 0.99999964)
+            float3 xformOp:translate = (-1.5091767, 0.37916595, -2.4587727)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Capsule "Capsule_3" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (3.1450999, 1.6950071e-7, -1.5707968)
+            }
+        )
+        {
+            uniform token axis = "Y"
+            double height = 2.2
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.02
+            float2 ui:nodegraph:node:pos = (40, 40)
+            int ui:nodegraph:node:stackingOrder = 2
+            quatf xformOp:orient = (0.0012401938, -0.7071055, 0.7071059, -0.0012400746)
+            float3 xformOp:scale = (0.9999999, 0.9999999, 0.9999999)
+            float3 xformOp:translate = (-0.40384626, 0.37916708, -1.9484886)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Capsule "Capsule_4" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (1.574304, -2.384186e-7, -1.5707965)
+            }
+        )
+        {
+            uniform token axis = "Y"
+            double height = 2.2
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.02
+            float2 ui:nodegraph:node:pos = (40, 40)
+            int ui:nodegraph:node:stackingOrder = 2
+            quatf xformOp:orient = (0.49912232, 0.500876, -0.5008762, -0.49912226)
+            float3 xformOp:scale = (0.9999994, 0.9999994, 0.9999994)
+            float3 xformOp:translate = (0.69407845, 0.37915823, -0.8441795)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Sphere "Sphere_Left_10" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (180, 180)
+            int ui:nodegraph:node:stackingOrder = 9
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-1.5034847, 0.38148546, -3.0112429)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0101"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_11" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (200, 200)
+            int ui:nodegraph:node:stackingOrder = 10
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-1.5034847, 0.38148546, -2.6586828)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0102"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_12" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (220, 220)
+            int ui:nodegraph:node:stackingOrder = 11
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-1.5034847, 0.38148546, -2.3109188)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0103"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_13" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (240, 240)
+            int ui:nodegraph:node:stackingOrder = 12
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-1.5034847, 0.38148546, -1.9505459)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0104"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_14" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (260, 260)
+            int ui:nodegraph:node:stackingOrder = 13
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-1.0996122, 0.38148546, -1.9508044)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0105"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_15" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (280, 280)
+            int ui:nodegraph:node:stackingOrder = 14
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-0.68798095, 0.38148546, -1.9508044)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0106"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_16" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (300, 300)
+            int ui:nodegraph:node:stackingOrder = 15
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-0.28108233, 0.38148546, -1.9508044)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0107"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_17" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (320, 320)
+            int ui:nodegraph:node:stackingOrder = 16
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.1250121, 0.38148546, -1.9508044)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0108"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_18" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (340, 340)
+            int ui:nodegraph:node:stackingOrder = 17
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.7020888, 0.38148546, -1.9508044)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0109"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_19" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (360, 360)
+            int ui:nodegraph:node:stackingOrder = 18
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.7020888, 0.38148546, -1.667589)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0110"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_20" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (380, 380)
+            int ui:nodegraph:node:stackingOrder = 19
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.69072217, 0.38148546, 0.27116883)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0117"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_21" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (400, 400)
+            int ui:nodegraph:node:stackingOrder = 20
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.6961151, 0.38148546, -0.07264075)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0116"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_22" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (420, 420)
+            int ui:nodegraph:node:stackingOrder = 21
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.69207925, 0.38148546, -0.38192332)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0115"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_23" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (440, 440)
+            int ui:nodegraph:node:stackingOrder = 22
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.7020888, 0.38148546, -0.6773961)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0114"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_24" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (460, 460)
+            int ui:nodegraph:node:stackingOrder = 23
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.695485, 0.38148546, -0.9993893)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0113"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_25" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (480, 480)
+            int ui:nodegraph:node:stackingOrder = 24
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.7020888, 0.38148546, -1.2348149)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0112"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_26" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/RedMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (500, 500)
+            int ui:nodegraph:node:stackingOrder = 25
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.7020888, 0.38148546, -1.4445214)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0111"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+    }
+
+    def Xform "Line2" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, 0, 0)
+        }
+    )
+    {
+        reorder nameChildren = ["Sphere_Left_4", "Sphere_Left_5", "Sphere_Left_3", "Sphere_Left", "Sphere_Left_2", "Sphere_Left_1", "Vitosha", "Capsule"]
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-0.85525125, -0.27677238, -3.982796)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Sphere "Sphere_Left_4" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/BlueMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (60, 60)
+            int ui:nodegraph:node:stackingOrder = 3
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.88326657, 0.6582586, 1.1448581)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0206"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_5" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/BlueMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (80, 80)
+            int ui:nodegraph:node:stackingOrder = 4
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.88674843, 0.6582589, 0.8135052)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0207"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_3" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/BlueMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (40, 40)
+            int ui:nodegraph:node:stackingOrder = 2
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.88144016, 0.6582586, 1.7480038)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0205"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/BlueMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.8853265, 0.6582586, 2.4473295)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0203"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_2" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/BlueMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.88295233, 0.6582586, 2.1187363)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0204"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_1" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/BlueMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.8849578, 0.6582588, 2.7869177)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0202"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Vitosha" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/BlueMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.8867974, 0.65825886, 3.1564758)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0201"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Capsule "Capsule" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (1.5707964, 0, -1.5707964)
+            }
+        )
+        {
+            uniform token axis = "Y"
+            double height = 2.7
+            rel material:binding = </Root/BlueMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.02
+            quatf xformOp:orient = (-0.5, -0.5, 0.5, 0.5)
+            float3 xformOp:scale = (0.99999994, 0.99999994, 0.99999994)
+            float3 xformOp:translate = (0.88628113, 0.6559415, 1.7914257)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Sphere "Sphere_Left_6" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/BlueMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (100, 100)
+            int ui:nodegraph:node:stackingOrder = 5
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.884874, 0.6582586, 0.4485258)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0208"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Capsule "Capsule_1" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (0, -1.1920929e-7, -1.5707965)
+            }
+        )
+        {
+            uniform token axis = "Y"
+            double height = 1.6
+            rel material:binding = </Root/BlueMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.02
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (0.7071067, -4.214685e-8, -4.2146844e-8, -0.7071068)
+            float3 xformOp:scale = (0.9999998, 0.9999998, 0.9999998)
+            float3 xformOp:translate = (0.08286291, 0.65492713, 0.44151616)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Sphere "Sphere_Left_7" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/BlueMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (120, 120)
+            int ui:nodegraph:node:stackingOrder = 6
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.5297884, 0.6582586, 0.43971276)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0209"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_8" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/BlueMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (140, 140)
+            int ui:nodegraph:node:stackingOrder = 7
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.13707256, 0.6582586, 0.4432807)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0210"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_9" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/BlueMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (160, 160)
+            int ui:nodegraph:node:stackingOrder = 8
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-0.2812364, 0.6582586, 0.44311237)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0211"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+    }
+
+    def Xform "Line3" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, 0, 0)
+        }
+    )
+    {
+        reorder nameChildren = ["Sphere_Left_4", "Sphere_Left_5", "Sphere_Left_3", "Sphere_Left", "Sphere_Left_2", "Sphere_Left_1", "Vitosha", "Capsule", "Capsule_1", "Sphere_Left_7", "Sphere_Left_8", "Sphere_Left_9"]
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (0.99999976, 0.99999976, 0.99999976)
+        float3 xformOp:translate = (-0.9189932, -0.27677238, -3.2478805)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Sphere "Sphere_Left_4" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/GreenMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (60, 60)
+            int ui:nodegraph:node:stackingOrder = 3
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.049299598, 0.6582588, 1.7145619)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0306"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_5" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/GreenMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (80, 80)
+            int ui:nodegraph:node:stackingOrder = 4
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.48999405, 0.6582588, 1.7154453)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0307"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_3" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/GreenMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (40, 40)
+            int ui:nodegraph:node:stackingOrder = 2
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-0.33032882, 0.6582588, 1.7149053)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0305"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/GreenMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-1.046266, 0.6582588, 1.719739)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0303"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_2" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/GreenMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-0.67723286, 0.6582588, 1.7167968)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0304"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_1" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/GreenMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-1.4021181, 0.6582588, 1.7121607)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0302"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Vitosha" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/GreenMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (-1.7640604, 0.6582588, 1.713075)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0301"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Capsule "Capsule" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (0, 0, -1.5707964)
+            }
+        )
+        {
+            uniform token axis = "Y"
+            double height = 2.7
+            rel material:binding = </Root/GreenMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.02
+            quatf xformOp:orient = (0.70710677, 0, 0, -0.70710677)
+            float3 xformOp:scale = (0.99999994, 0.99999994, 0.99999994)
+            float3 xformOp:translate = (-0.43743324, 0.6559415, 1.7144327)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Capsule "Capsule_1" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (2.0943952, -2.384186e-7, -1.5707964)
+            }
+        )
+        {
+            uniform token axis = "Y"
+            double height = 2
+            rel material:binding = </Root/GreenMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.02
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (-0.35355344, -0.6123724, 0.61237246, 0.3535533)
+            float3 xformOp:scale = (0.9999998, 0.9999998, 0.9999998)
+            float3 xformOp:translate = (1.4729521, 0.65435016, 0.84355426)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Sphere "Sphere_Left_7" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/GreenMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (120, 120)
+            int ui:nodegraph:node:stackingOrder = 6
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (1.2679905, 0.6582588, 1.1919246)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0308"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_8" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/GreenMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (140, 140)
+            int ui:nodegraph:node:stackingOrder = 7
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (1.7124248, 0.6582588, 0.4184537)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0309"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_9" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/GreenMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (160, 160)
+            int ui:nodegraph:node:stackingOrder = 8
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (1.9565153, 0.6582588, 0.0065977573)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0310"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+    }
+
+    def Xform "Line4" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, 0, 0)
+        }
+    )
+    {
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (0.99999994, 0.99999994, 1)
+        float3 xformOp:translate = (1.2630509, -1.6391277e-7, 1.9222038)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Capsule "Capsule_4" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (2.3561945, -2.9802322e-8, -1.5707932)
+            }
+        )
+        {
+            uniform token axis = "Y"
+            double height = 2
+            rel material:binding = </Root/YellowMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.02
+            float2 ui:nodegraph:node:pos = (40, 40)
+            int ui:nodegraph:node:stackingOrder = 2
+            quatf xformOp:orient = (0.27059847, 0.6532825, -0.6532805, -0.2705976)
+            float3 xformOp:scale = (0.99999994, 0.9999996, 0.99999964)
+            float3 xformOp:translate = (0.06646643, 0.37712365, -3.8209245)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Sphere "Sphere_Left_10" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/YellowMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (200, 200)
+            int ui:nodegraph:node:stackingOrder = 10
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.9999998, 0.9999997, 0.9999998)
+            float3 xformOp:translate = (-0.39054632, 0.38148284, -3.3701184)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0406"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_11" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/YellowMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (200, 200)
+            int ui:nodegraph:node:stackingOrder = 10
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.9999998, 0.9999997, 0.9999998)
+            float3 xformOp:translate = (0.37923408, 0.38148254, -4.139991)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0403"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_12" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/YellowMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (200, 200)
+            int ui:nodegraph:node:stackingOrder = 10
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0.61154187, 0.37363142, -4.3769436)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0402"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_13" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/YellowMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (220, 220)
+            int ui:nodegraph:node:stackingOrder = 11
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.9999998, 0.9999997, 0.9999998)
+            float3 xformOp:translate = (-0.15107131, 0.38148057, -3.6098392)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0405"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_15" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/YellowMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (180, 180)
+            int ui:nodegraph:node:stackingOrder = 9
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.9999998, 0.9999997, 0.9999998)
+            float3 xformOp:translate = (0.10523057, 0.38148463, -3.8610537)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0404"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+
+        def Sphere "Sphere_Left_14" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/YellowMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (220, 220)
+            int ui:nodegraph:node:stackingOrder = 11
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.9999998, 0.9999997, 0.9999998)
+            float3 xformOp:translate = (0.8218477, 0.38147938, -4.5790987)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def RealityKitCustomComponent "RealityKitContent_StationComponent"
+            {
+                string id = "0401"
+                uniform token info:id = "RealityKitContent.StationComponent"
+            }
+        }
+    }
+}
+
